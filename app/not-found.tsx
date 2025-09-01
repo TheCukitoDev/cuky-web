@@ -8,7 +8,10 @@ export default function NotFound() {
     <HomeLayout {...baseOptions()}>
       <div className="flex min-h-screen flex-col items-center justify-center p-4">
         <div className="mb-8">
-          <Asterisk className="h-48 w-48 animate-pulse text-muted-foreground" />
+          <Asterisk
+            className="h-48 w-48 animate-pulse text-muted-foreground"
+            color="#799EFF"
+          />
         </div>
         <h1 className="text-4xl font-bold">404 - Not Found</h1>
         <p className="mb-8 text-lg text-center">
