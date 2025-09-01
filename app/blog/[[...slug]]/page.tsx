@@ -3,7 +3,14 @@ import Link from "next/link";
 
 export default async function Page(props: PageProps<"/blog/[[...slug]]">) {
   const params = await props.params;
-  if (!params.slug) notFound();
+  if (!params.slug)
+    return (
+      <div className="flex flex-col gap-4 items-center justify-center min-h-[60vh]">
+        <h1 className="text-2xl font-bold flex justify-center">
+          Blog - Work in progress
+        </h1>
+      </div>
+    );
 
   return (
     <div className="flex flex-col gap-4 items-center justify-center min-h-[60vh]">
