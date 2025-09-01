@@ -32,10 +32,10 @@ export default defineConfig({
   mdxOptions: {
     remarkPlugins: [
       [
+        remarkMath,
         remarkInstall,
         remarkInstallOptions,
         remarkTypeScriptToJavaScript,
-        remarkMath,
         remarkMdxMermaid,
       ],
     ],
