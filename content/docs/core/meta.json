@@ -1,0 +1,7 @@
+{
+  "title": "Core",
+  "description": "The cuky database core",
+  "root": true,
+  "icon": "cpu",
+  "pages": ["index"]
+}

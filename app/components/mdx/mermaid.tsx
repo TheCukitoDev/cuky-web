@@ -2,16 +2,37 @@
 
 import { use, useEffect, useId, useState } from "react";
 import { useTheme } from "next-themes";
+import type { ReactNode } from "react";
 
-export function Mermaid({ chart }: { chart: string }) {
+export function Mermaid({
+  chart,
+  children,
+}: {
+  chart?: string;
+  children?: ReactNode;
+}) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return;
-  return <MermaidContent chart={chart} />;
+  let content = chart;
+
+  if (!content && children) {
+    const pre =
+      children as React.ReactElement<{ children?: string; [key: string]: unknown }>;
+
+    if (typeof pre.props?.children === "string") {
+      content = pre.props.children;
+    } else {
+      content = String(children);
+    }
+  }
+
+  if (!mounted || !content) return null;
+
+  return <MermaidContent chart={content} />;
 }
 
 const cache = new Map<string, Promise<unknown>>();

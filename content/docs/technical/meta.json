@@ -1,0 +1,7 @@
+{
+  "title": "Technical",
+  "description": "How does cuky works under the hood?",
+  "root": true,
+  "icon": "microscope",
+  "pages": ["---Introduction---", "index"]
+}

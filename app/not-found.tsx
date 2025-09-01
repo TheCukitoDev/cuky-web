@@ -24,6 +24,11 @@ export default function NotFound() {
             description="Browse the documentation to find what you need."
           />
           <NotFoundLink
+            href="/blog"
+            title="Blog"
+            description="Watch the latest blog posts."
+          />
+          <NotFoundLink
             href="/"
             title="Home"
             description="Return to the homepage."

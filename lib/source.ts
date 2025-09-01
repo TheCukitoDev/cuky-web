@@ -9,11 +9,14 @@ export const source = loader({
   baseUrl: '/docs',
   source: docs.toFumadocsSource(),
   icon(icon) {
-    if (!icon) {
-      // You may set a default icon
-      return;
+    switch (icon) {
+      case 'cpu':
+        return createElement(icons.Cpu, { color: '#799EFF' });
+      case 'newspaper':
+        return createElement(icons.Newspaper);
+      case 'microscope':
+        return createElement(icons.Microscope, { color: '#799EFF' });
     }
 
-    if (icon in icons) return createElement(icons[icon as keyof typeof icons]);
   },
 });

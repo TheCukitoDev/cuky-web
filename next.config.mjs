@@ -1,11 +1,20 @@
-import { createMDX } from 'fumadocs-mdx/next';
+import { createMDX } from "fumadocs-mdx/next";
 
 const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
   reactStrictMode: true,
-  serverExternalPackages: ['oxc-transform'],
+  serverExternalPackages: ["oxc-transform"],
+  async redirects() {
+    return [
+      {
+        source: "/docs",
+        destination: "/docs/core",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withMDX(config);
