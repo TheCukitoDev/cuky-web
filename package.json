@@ -13,10 +13,14 @@
     "fumadocs-docgen": "^3.0.0",
     "fumadocs-mdx": "11.8.2",
     "fumadocs-ui": "15.7.7",
+    "katex": "^0.16.22",
     "lucide-react": "^0.542.0",
     "next": "15.5.2",
+    "oxc-transform": "^0.86.0",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
     "@types/node": "24.3.0",

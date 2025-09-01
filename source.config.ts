@@ -4,7 +4,11 @@ import {
   frontmatterSchema,
   metaSchema,
 } from 'fumadocs-mdx/config';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 import { remarkInstall } from 'fumadocs-docgen';
+import { remarkTypeScriptToJavaScript } from 'fumadocs-docgen/remark-ts2js';
+import { rehypeCodeDefaultOptions } from 'fumadocs-core/mdx-plugins';
 
 const remarkInstallOptions = {
   persist: {
@@ -26,7 +30,18 @@ export const docs = defineDocs({
 export default defineConfig({
   mdxOptions: {
     remarkPlugins: [
-      [remarkInstall, remarkInstallOptions]
-    ]
+      [remarkInstall, remarkInstallOptions, remarkTypeScriptToJavaScript, remarkMath]
+    ],
+    rehypeCodeOptions: {
+      ...rehypeCodeDefaultOptions,
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
+      transformers: [
+        ...(rehypeCodeDefaultOptions.transformers ?? []),
+      ],
+    },
+    rehypePlugins: (v) => [rehypeKatex, ...v],
   },
 });
