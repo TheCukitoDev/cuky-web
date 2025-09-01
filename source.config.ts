@@ -3,16 +3,17 @@ import {
   defineDocs,
   frontmatterSchema,
   metaSchema,
-} from 'fumadocs-mdx/config';
-import rehypeKatex from 'rehype-katex';
-import remarkMath from 'remark-math';
-import { remarkInstall } from 'fumadocs-docgen';
-import { remarkTypeScriptToJavaScript } from 'fumadocs-docgen/remark-ts2js';
-import { rehypeCodeDefaultOptions } from 'fumadocs-core/mdx-plugins';
+} from "fumadocs-mdx/config";
+import rehypeKatex from "rehype-katex";
+import remarkMath from "remark-math";
+import { remarkInstall } from "fumadocs-docgen";
+import { remarkTypeScriptToJavaScript } from "fumadocs-docgen/remark-ts2js";
+import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
+import { remarkMdxMermaid } from "fumadocs-core/mdx-plugins";
 
 const remarkInstallOptions = {
   persist: {
-    id: 'fumadocs-docgen-remark-install-id-cuky',
+    id: "fumadocs-docgen-remark-install-id-cuky",
   },
 };
 
@@ -30,17 +31,21 @@ export const docs = defineDocs({
 export default defineConfig({
   mdxOptions: {
     remarkPlugins: [
-      [remarkInstall, remarkInstallOptions, remarkTypeScriptToJavaScript, remarkMath]
+      [
+        remarkInstall,
+        remarkInstallOptions,
+        remarkTypeScriptToJavaScript,
+        remarkMath,
+        remarkMdxMermaid,
+      ],
     ],
     rehypeCodeOptions: {
       ...rehypeCodeDefaultOptions,
       themes: {
-        light: 'github-light',
-        dark: 'github-dark',
+        light: "github-light",
+        dark: "github-dark",
       },
-      transformers: [
-        ...(rehypeCodeDefaultOptions.transformers ?? []),
-      ],
+      transformers: [...(rehypeCodeDefaultOptions.transformers ?? [])],
     },
     rehypePlugins: (v) => [rehypeKatex, ...v],
   },
