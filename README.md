@@ -3,5 +3,5 @@
 ## TODO
 
 - [x] Inline math
-- [ ] Mermaid code blocks
+- [x] Mermaid code blocks
 - [ ] Package install persistence

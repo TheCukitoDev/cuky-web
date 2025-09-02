@@ -13,7 +13,7 @@ import { remarkMdxMermaid } from "fumadocs-core/mdx-plugins";
 
 const remarkInstallOptions = {
   persist: {
-    id: "fumadocs-docgen-remark-install-id-cuky",
+    id: "some-id",
   },
 };
 
@@ -30,14 +30,13 @@ export const docs = defineDocs({
 
 export default defineConfig({
   mdxOptions: {
-    remarkPlugins: [
+    remarkPlugins: [remarkMath,
       [
-        remarkMath,
         remarkInstall,
         remarkInstallOptions,
-        remarkTypeScriptToJavaScript,
-        remarkMdxMermaid,
       ],
+      remarkTypeScriptToJavaScript,
+      remarkMdxMermaid,
     ],
     rehypeCodeOptions: {
       ...rehypeCodeDefaultOptions,

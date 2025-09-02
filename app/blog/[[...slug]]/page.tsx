@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
 import Link from "next/link";
+import { ReturnButton } from "@/components/returnButton";
 
 export default async function Page(props: PageProps<"/blog/[[...slug]]">) {
   const params = await props.params;
@@ -20,12 +20,14 @@ export default async function Page(props: PageProps<"/blog/[[...slug]]">) {
       <h2>
         You&apos;re at{" "}
         <Link
-          href={`/${params.slug.join("/")}`}
+          href={`/blog/${params.slug.join("/")}`}
           className="font-bold underline"
         >
           /{params.slug.join("/")}
         </Link>
       </h2>
+
+      <ReturnButton />
     </div>
   );
 }
